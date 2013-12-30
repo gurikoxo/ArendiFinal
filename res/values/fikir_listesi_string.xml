@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fikir_listesi_header">Fikir Listesi</string>
+    <string name="fikir_detay_Fikir_sahibi">Fikir Sahibi</string>
+    <string name="fikir_detay_puan_ver">Puan Ver</string>
+
+</resources>

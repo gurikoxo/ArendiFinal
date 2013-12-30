@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="yeni_personel_header">Yeni Personel</string>
+    <string name="personel_firma_adi">Firma</string>
+    <string name="personel_tc_kimlik_no">TC Kimlik No</string>
+    <string name="personel_ad_soyad">Ad Soyad</string>
+    <string name="personel_gorev">Görev</string>
+    <string name="personel_cep_telefonu">Cep Telefonu</string>
+    <string name="personel_ev_telefonu">Ev Telefonu</string>
+    <string name="personel_e_posta">E-Posta</string>
+    <string name="personel_parola">Parola</string>
+    <string name="personel_parola_tekrar">Parola(Tekrar)</string>
+    <string name="personel_sistem_yoneticisi">Sistem Yöneticisi</string>
+    <string name="personel_musteri_personeli">Müşteri Personeli</string>
+    <string name="personel_secme_kurulu_uyesi">Seçme Kurulu Üyesi</string>
+    <string name="personel_kaydet_btn">Kaydet</string>
+    
+    
+    
+      <string-array name="personel_firma_array">
+        <item>Globit Global Bilgi Teknolojileri</item>
+        <item>32Bit Bilgisayar Teknolojileri</item>
+        <item>Evoline TR</item>
+        <item>Ritma Teknoloji</item>
+        <item>Elvan Gıda San.Tic. A.Ş</item>
+    </string-array>
+
+</resources>

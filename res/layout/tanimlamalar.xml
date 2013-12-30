@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    
+     <TextView
+        android:id="@+id/tanimlamalarHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:text="@string/firma_diger_ayarlar"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/seperator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tanimlamalarHeader"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tanimAdiLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seperator"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:text="@string/tanim_adi" />
+
+    <Spinner
+        android:id="@+id/tanimAdiSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tanimAdiLabel"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20sp"
+        android:layout_alignRight="@+id/seperator1"
+        android:layout_toRightOf="@+id/tanimAdiLabel"
+        android:entries="@array/tanim_adi_array" />
+
+    <TextView
+        android:id="@+id/tanimlamaDegerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tanimAdiLabel"
+        android:layout_below="@+id/tanimAdiLabel"
+        android:layout_marginTop="20sp"
+        android:text="@string/tanim_deger"
+        android:textSize="18sp" />
+    
+    
+    
+      <View
+        android:id="@+id/seperator1"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tanimlamaDegerLabel"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        android:background="@android:color/darker_gray" />
+
+      <ListView
+          android:id="@+id/tanimlamaDegerList"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/seperator1"
+          android:layout_alignRight="@+id/seperator1"
+          android:layout_below="@+id/seperator1" >
+      </ListView>
+
+      <Button
+          android:id="@+id/degerEkleButton"
+          style="?android:attr/buttonStyleSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/tanimlamaDegerLabel"
+          android:layout_alignRight="@+id/seperator1"
+          android:layout_alignTop="@+id/tanimlamaDegerLabel"
+          android:background="@android:color/transparent"
+          android:drawableTop="@drawable/plus"/>
+
+</RelativeLayout>

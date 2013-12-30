@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/yeniFirma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:text="@string/yeni_personel_header"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/seperator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/yeniFirma"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/personelFirmaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seperator"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/personel_firma_adi"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/personelFirmaSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/personelFirmaLabel"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="20sp"
+        android:layout_toRightOf="@+id/yeniFirma"
+        android:entries="@array/personel_firma_array" />
+
+    <TextView
+        android:id="@+id/personelTcKimlikNoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelFirmaLabel"
+        android:layout_below="@+id/personelFirmaLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelTcKimlikNoField"
+        android:text="@string/personel_tc_kimlik_no"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelTcKimlikNoField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelTcKimlikNoField"
+        android:layout_alignLeft="@+id/personelFirmaSpinner"
+        android:layout_alignRight="@+id/personelFirmaSpinner"
+        android:layout_below="@+id/personelFirmaSpinner"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="11" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/personelAdSoyadLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelTcKimlikNoLabel"
+        android:layout_below="@+id/personelTcKimlikNoLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelAdSoyadField"
+        android:text="@string/personel_ad_soyad"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelAdSoyadField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelAdSoyadLabel"
+        android:layout_alignLeft="@+id/personelTcKimlikNoField"
+        android:layout_alignRight="@+id/personelTcKimlikNoField"
+        android:ems="10"
+        android:inputType="textPersonName" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/personelGorevLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelAdSoyadLabel"
+        android:layout_below="@+id/personelAdSoyadLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelGorevField"
+        android:text="@string/personel_gorev"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelGorevField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelGorevLabel"
+        android:layout_alignLeft="@+id/personelAdSoyadField"
+        android:layout_alignRight="@+id/personelAdSoyadField"
+        android:layout_below="@+id/personelAdSoyadField"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/personelCepTelefonuLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelGorevLabel"
+        android:layout_below="@+id/personelGorevLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelCepTelefonuField"
+        android:text="@string/personel_cep_telefonu"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelCepTelefonuField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelCepTelefonuLabel"
+        android:layout_alignLeft="@+id/personelGorevField"
+        android:layout_alignRight="@+id/personelGorevField"
+        android:layout_below="@+id/personelGorevField"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/personelEvTelefonuLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelCepTelefonuLabel"
+        android:layout_below="@+id/personelCepTelefonuLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelEvTelefonuField"
+        android:text="@string/personel_ev_telefonu"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelEvTelefonuField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelEvTelefonuLabel"
+        android:layout_alignLeft="@+id/personelCepTelefonuField"
+        android:layout_alignRight="@+id/personelCepTelefonuField"
+        android:layout_below="@+id/personelCepTelefonuLabel"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/personelEPostaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelEvTelefonuLabel"
+        android:layout_below="@+id/personelEvTelefonuLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelEPostaField"
+        android:text="@string/personel_e_posta"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelEPostaField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelEPostaLabel"
+        android:layout_alignLeft="@+id/personelEvTelefonuField"
+        android:layout_alignRight="@+id/personelEvTelefonuField"
+        android:layout_below="@+id/personelEvTelefonuField"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/personelPasswordLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelEPostaLabel"
+        android:layout_below="@+id/personelEPostaLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelPasswordField"
+        android:text="@string/personel_parola"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelPasswordField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelPasswordLabel"
+        android:layout_alignLeft="@+id/personelEPostaField"
+        android:layout_alignRight="@+id/personelEPostaField"
+        android:layout_below="@+id/personelEPostaField"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/personelPasswordTekrarLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelPasswordLabel"
+        android:layout_below="@+id/personelPasswordLabel"
+        android:layout_marginTop="10sp"
+        android:labelFor="@+id/personelPasswordTekrarField"
+        android:text="@string/personel_parola_tekrar"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/personelPasswordTekrarField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelPasswordTekrarLabel"
+        android:layout_alignLeft="@+id/personelPasswordField"
+        android:layout_alignRight="@+id/personelPasswordField"
+        android:layout_below="@+id/personelPasswordField"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/sistemYoneticisiCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelPasswordTekrarLabel"
+        android:layout_below="@+id/personelPasswordTekrarField"
+        android:text="@string/personel_sistem_yoneticisi"
+        android:textSize="12sp" />
+
+    <CheckBox
+        android:id="@+id/musteriPersoneliCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sistemYoneticisiCheckBox"
+        android:layout_alignBottom="@+id/sistemYoneticisiCheckBox"
+        android:layout_toRightOf="@+id/sistemYoneticisiCheckBox"
+        android:text="@string/personel_musteri_personeli"
+        android:textSize="12sp" />
+
+    <CheckBox
+        android:id="@+id/secmeKuruluUyesiCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/musteriPersoneliCheckBox"
+        android:layout_alignBottom="@+id/musteriPersoneliCheckBox"
+        android:layout_toRightOf="@+id/musteriPersoneliCheckBox"
+        android:text="@string/personel_secme_kurulu_uyesi"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/personelKaydetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/personelPasswordTekrarField"
+        android:layout_below="@+id/secmeKuruluUyesiCheckBox"
+        android:layout_marginTop="17dp"
+        android:text="@string/personel_kaydet_btn"
+        android:textColor="@android:color/black" />
+
+</RelativeLayout>

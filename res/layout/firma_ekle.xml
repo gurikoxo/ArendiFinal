@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/yeniFirma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:text="@string/yeni_firma"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/seperator"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/yeniFirma"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/firmaAdiLabel"
+        android:height="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seperator"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:labelFor="@+id/firmaAdiField"
+        android:text="@string/firma_adi"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/firmaAdiField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignBaseline="@+id/firmaAdiLabel"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="18dp"
+        android:layout_toRightOf="@+id/firmaWebAdresi"
+        android:ems="10"
+        android:inputType="text" />
+
+
+    <TextView
+        android:id="@+id/firmaTelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignLeft="@+id/firmaAdiLabel"
+        android:layout_below="@+id/firmaAdiLabel"
+        android:layout_marginTop="10dp"
+        android:labelFor="@+id/firmaTelField"
+        android:text="@string/firma_telefon"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/firmaTelField"
+        android:layout_width="wrap_content"
+		android:height="30sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/firmaTelLabel"
+        android:layout_alignLeft="@+id/firmaAdiField"
+        android:layout_alignRight="@+id/firmaAdiField"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/firmaEPosta"
+        android:layout_width="wrap_content"
+        android:height="30sp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firmaTelLabel"
+        android:layout_below="@+id/firmaTelLabel"
+        android:layout_marginTop="10dp"
+        android:labelFor="@+id/firmaEPostaField"
+        android:text="@string/firma_e_posta"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/firmaEPostaField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignBaseline="@+id/firmaEPosta"
+        android:layout_alignLeft="@+id/firmaTelField"
+        android:layout_alignRight="@+id/firmaTelField"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/firmaWebAdresi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignLeft="@+id/firmaEPosta"
+        android:layout_below="@+id/firmaEPosta"
+        android:layout_marginTop="10dp"
+        android:text="@string/firma_web_adresi"
+        android:textSize="18sp" 
+        android:labelFor="@+id/firmaWebAdresiField"/>
+
+    <EditText
+        android:id="@+id/firmaWebAdresiField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignBaseline="@+id/firmaWebAdresi"
+        android:layout_alignLeft="@+id/firmaEPostaField"
+        android:layout_alignRight="@+id/firmaEPostaField"
+        android:ems="10"
+        android:inputType="textEmailAddress" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/firmaOlcegiLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignLeft="@+id/firmaWebAdresi"
+        android:layout_below="@+id/firmaWebAdresi"
+        android:layout_marginTop="10dp"
+        android:text="@string/firma_olcegi"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/firmaOlcegiSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignLeft="@+id/firmaWebAdresiField"
+        android:layout_alignRight="@+id/firmaWebAdresiField"
+        android:layout_alignBaseline="@+id/firmaOlcegiLabel"
+        android:layout_below="@+id/firmaWebAdresiField"
+        android:entries="@array/firma_olcegi_array" />
+
+    <TextView
+        android:id="@+id/firmaAdresLabel"
+        android:layout_width="wrap_content"
+        android:height="30sp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firmaOlcegiLabel"
+        android:layout_below="@+id/firmaOlcegiLabel"
+        android:text="@string/firma_adres"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp" 
+        android:labelFor="@+id/firmaAdresField"/>
+
+    <EditText
+        android:id="@+id/firmaAdresField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:layout_alignLeft="@+id/firmaOlcegiSpinner"
+        android:layout_alignRight="@+id/firmaOlcegiSpinner"
+        android:layout_below="@+id/firmaOlcegiSpinner"
+        android:layout_alignBaseline="@+id/firmaAdresLabel"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+
+    <TextView
+        android:id="@+id/firmaDurumLabel"
+        android:layout_width="wrap_content"
+        android:height="30sp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firmaAdresLabel"
+        android:layout_below="@+id/firmaAdresLabel"
+        android:layout_marginTop="11dp"
+        android:text="@string/firma_durum"
+        android:textSize="18sp" 
+        android:labelFor="@+id/firmaDurumSpinner"/>
+
+    <Spinner
+        android:id="@+id/firmaDurumSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firmaAdresField"
+        
+        android:layout_alignRight="@+id/firmaAdresField"
+        android:layout_alignBaseline="@+id/firmaDurumLabel"
+        android:layout_below="@+id/firmaAdresField"
+        android:entries="@array/firma_durumu_array" />
+
+    <Button
+        android:id="@+id/firmaEkleButton"
+        style="@android:style/Theme.Holo.Light.Panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/firmaDurumSpinner"
+        android:layout_below="@+id/firmaDurumLabel"
+        android:text="@string/firma_ekle_btn"
+        android:layout_marginTop="5dp" 
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/digerAyarlarLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/firmaEkleButton"
+        android:layout_below="@+id/firmaEkleButton"
+        android:layout_marginTop="27dp"
+        android:clickable="true"
+        android:gravity="right"
+        android:text="@string/firma_diger_ayarlar"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

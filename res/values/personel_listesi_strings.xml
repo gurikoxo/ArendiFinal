@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	    <string name="is_manager">Yönetici</string>
+    	    <string name="personel_listesi_header">Personel Listesi</string>
+    	    <string name="personel_ekle_btn">Yeni Personel</string>
+    	    <string name="personel_listesi_filter">Hızlı Ara..</string>
+</resources>

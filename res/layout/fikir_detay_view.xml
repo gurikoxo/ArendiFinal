@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+     <TextView
+        android:id="@+id/fikirDetayHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/seperator"
+        android:layout_width="fill_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/fikirDetayHeader"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/fikirDetayAciklama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperator"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="TextView" 
+        android:inputType="textMultiLine"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/fikirSahibiLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fikirDetayAciklama"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/fikir_detay_Fikir_sahibi"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/fikirSahibi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fikirSahibiLabel"
+        android:layout_toRightOf="@+id/fikirSahibiLabel"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp" 
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/fikirFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fikirSahibiLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/fikirSahibi"
+        android:layout_marginBottom="27dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="42dp"
+        android:src="@drawable/red_tick" />
+
+    <Button
+        android:id="@+id/puanVerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/fikirFoto"
+        android:layout_below="@+id/fikirSahibi"
+        android:text="Puan Ver" />
+    
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	 <string name="degerlendirme_kriterleri_header">Değerlendirme Kriterleri</string>
+    	 <string name="yeni_kriter_ekle">Yeni Kriter Ekle</string>
+    	 <string name="kriter_adi">Kriter</string>
+    	 <string name="katsayi">Katsayı</string>
+</resources>

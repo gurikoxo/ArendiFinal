@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="departman_listesi_header">Departman Listesi</string>
+    <string name="departman_adi">Departman Adi</string>
+    <string name="departman_ekle_btn">Yeni Departman Ekle</string>
+    <string name="edit">Düzenle</string>
+    <string name="delete">Sil</string>
+    
+
+
+</resources>

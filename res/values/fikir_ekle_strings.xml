@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fikir_ekle_header">Yeni Fikir Ekle</string>
+    <string name="fikir_baslik_label">Başlık</string>
+    <string name="fikir_aciklama">Açıklama</string>
+    <string name="fikir_gizlilik">Gizlilik</string>
+    <string name="foto_ekle_btn">Resim Ekle</string>
+
+</resources>

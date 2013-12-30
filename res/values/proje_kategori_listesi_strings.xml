@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="proje_kategori_listesi_header">Proje Kategori Listesi</string>
+    <string name="kategori_adi">Kategori Adı</string>
+    <string name="proje_kategori_ekle_btn">Yeni Proje Kategorisi Ekle</string>
+    
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/personelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5sp"
+        android:layout_marginTop="5sp"
+        android:gravity="center_vertical|left"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/PersonelFirma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/personelName"
+        android:layout_below="@+id/personelName"
+        android:gravity="center_vertical|left"
+        android:layout_marginTop="5sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/PersonelEMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/personelName"
+        android:layout_alignBottom="@+id/personelName"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical|right"
+        android:layout_marginRight="5sp"
+        android:text="TextView" />
+
+    <CheckBox
+        android:id="@+id/isManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/PersonelFirma"
+        android:layout_alignRight="@+id/PersonelEMail"
+        android:gravity="center_vertical|right"
+        android:text="@string/is_manager"
+        android:enabled="false" />
+
+</RelativeLayout>

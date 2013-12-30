@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="20sp" >
+
+    <TextView
+        android:id="@+id/fikirAciklamaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+        android:text="@string/tanim_deger" />
+
+    <EditText
+        android:id="@+id/yeniDegerField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fikirAciklamaLabel"
+        android:layout_alignBottom="@+id/fikirAciklamaLabel"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20sp"
+        android:inputType="textPersonName"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/degerEkleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/yeniDegerField"
+        android:layout_alignTop="@+id/iptalButton"
+        android:text="@string/deger_ekle"  />
+
+    <Button
+        android:id="@+id/iptalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yeniDegerField"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/degerEkleButton"
+        android:text="@string/iptal" />
+
+</RelativeLayout>

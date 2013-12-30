@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+     <TextView
+        android:id="@+id/fikirBaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="left"
+        android:text="TextView" 
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/fikirSahibi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fikirBaslik"
+        android:layout_below="@+id/fikirBaslik"
+        android:gravity="left"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/fikirPuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/fikirBaslik"
+        android:layout_alignBottom="@+id/fikirSahibi"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/fikirBaslik"
+        android:text="Large Text"
+        android:gravity="right|center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

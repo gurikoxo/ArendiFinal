@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/loginLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/loginField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:src="@drawable/logo" 
+        android:contentDescription="@string/app_name"/>
+
+    <EditText
+        android:id="@+id/loginField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passwordField"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/passwordField"
+        android:layout_marginTop="130dp"
+        android:ems="10" 
+        android:hint="@string/user_name_field"/>
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginLogo"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPassword" 
+        android:hint="@string/password_field"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/passwordField"
+        android:layout_below="@+id/passwordField"
+        android:layout_marginTop="21dp"
+        android:text="@string/login_button_text" />
+
+</RelativeLayout>

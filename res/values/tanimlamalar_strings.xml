@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tanim_adi">Tanım Adı</string>
+    <string name="tanim_deger">Değer</string>
+    <string name="iptal">İptal</string>
+    <string name="deger_ekle">Değer Ekle</string>
+    
+     <string-array name="tanim_adi_array">
+        <item>Döviz Tipi</item>
+        <item>Firma Ölçeği</item>
+        <item>Teknik Riskler</item>
+    </string-array>
+    
+</resources>

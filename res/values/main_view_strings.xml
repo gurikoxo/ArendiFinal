@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	 <string name="proje_listesi_double">Fikir\nEkle</string>
+    	 <string name="firma_listesi_double">Fikir\nListesi</string>
+    	 <string name="personel_listesi_double">Personel\nListesi</string>
+</resources>

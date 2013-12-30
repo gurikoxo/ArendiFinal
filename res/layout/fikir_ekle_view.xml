@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/fikirEKleHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:text="@string/fikir_ekle_header"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/seperator"
+        android:layout_width="fill_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/fikirEKleHeader"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/fikirBaslikLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/seperator"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fikir_baslik_label"
+        android:textSize="18sp" 
+        android:labelFor="@+id/fikirBaslikField"/>
+
+    <EditText
+        android:id="@+id/fikirBaslikField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fikirBaslikLabel"
+        android:layout_alignBottom="@+id/fikirBaslikLabel"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="22dp"
+        android:layout_toRightOf="@+id/fikirEKleHeader"
+        android:ems="10"
+        android:inputType="text" >
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/fikirAciklamaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fikirBaslikLabel"
+        android:layout_below="@+id/fikirBaslikField"
+        android:layout_marginTop="30dp"
+        android:text="@string/fikir_aciklama"
+        android:textSize="18sp" 
+        android:labelFor="@+id/fikirAciklamaField"/>
+
+    <EditText
+        android:id="@+id/fikirAciklamaField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fikirAciklamaLabel"
+        android:layout_alignBottom="@+id/fikirAciklamaLabel"
+        android:layout_alignRight="@+id/fikirBaslikField"
+        android:layout_toRightOf="@+id/fikirEKleHeader"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/fikirGizlilikLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fikirAciklamaLabel"
+        android:layout_below="@+id/fikirAciklamaField"
+        android:layout_marginTop="30dp"
+        android:text="@string/fikir_gizlilik"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/fikirGizlilikSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fikirGizlilikLabel"
+        android:layout_alignLeft="@+id/fikirAciklamaField"
+        android:layout_alignRight="@+id/fikirAciklamaField"
+        android:layout_below="@+id/fikirAciklamaField" />
+
+    <Button
+        android:id="@+id/fikirEkleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/fikirGizlilikSpinner"
+        android:layout_below="@+id/fikirGizlilikSpinner"
+        android:layout_marginTop="30dp"
+        android:text="@string/fikir_ekle_header" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fikirGizlilikLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/fikirEkleBtn"
+        android:layout_below="@+id/fikirEkleBtn"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/fotoEkleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fikirEkleBtn"
+        android:layout_alignBottom="@+id/fikirEkleBtn"
+        android:layout_toLeftOf="@+id/fikirEkleBtn"
+        android:text="@string/foto_ekle_btn" />
+
+</RelativeLayout>
