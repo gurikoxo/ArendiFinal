@@ -37,7 +37,11 @@ import android.widget.Spinner;
 
 import com.google.gson.Gson;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 import edu.gyte.bitirme.arendi.R;
+import edu.gyte.bitirme.arendi.login.LoginActivity;
 import edu.gyte.bitirme.arendi.login.User;
 import edu.gyte.bitirme.arendi.services.Service;
 
@@ -94,6 +98,9 @@ public class FikirEkleView extends Fragment {
 				try {
 					if(sender.execute(fikirImage).get()){
 						Log.d("log" , "Fikir Eklendi");
+						Crouton.makeText(getActivity(), "Fikir Eklendi", Style.ALERT).show();
+					}else{
+						Crouton.makeText(getActivity(), "Hata! Fikir Eklenemedi.", Style.ALERT).show();
 					}
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
