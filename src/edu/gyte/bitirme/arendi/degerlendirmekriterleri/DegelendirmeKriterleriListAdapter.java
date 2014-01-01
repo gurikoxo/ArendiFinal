@@ -22,6 +22,7 @@ public class DegelendirmeKriterleriListAdapter  extends ArrayAdapter<Degerlendir
 			list=(ArrayList<DegerlendirmeKriteri>) objects;
 		}
 
+		
         
 		public View getView(int position, View convertView, ViewGroup parent){
 
