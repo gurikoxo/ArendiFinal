@@ -6,21 +6,26 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 import edu.gyte.bitirme.arendi.R;
-import edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegelendirmeKriterleriListAdapter;
 import edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriterJson;
 import edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriteri;
 import edu.gyte.bitirme.arendi.login.User;
@@ -31,6 +36,8 @@ public class FikirPuanView extends Fragment {
 	
 	final String GET_KRITER_LIST_WS = Service.serverAddres + "get_kriter_list.php";
 	Gson gson = new Gson();
+	
+	Button puanVerButton ;
 	
 	public static Fragment newInstance(Context context) {
 		FikirPuanView f = new FikirPuanView();
@@ -49,10 +56,13 @@ public class FikirPuanView extends Fragment {
 		ArrayList<DegerlendirmeKriteri> list = new ArrayList<DegerlendirmeKriteri>();
 		
 		TextView fikirAdi = (TextView) root.findViewById(R.id.puanFikirAdi);
+		
+		puanVerButton = (Button) root.findViewById(R.id.puanVerButton);
 
 		fikirAdi.setText(fikir.getBaslik());
+		
 
-		ListView puanKriterList = (ListView) root.findViewById(R.id.puanKriterList);
+		final ListView puanKriterList = (ListView) root.findViewById(R.id.puanKriterList);
 		
 		User user = (User) getActivity().getIntent().getExtras()
 				.getSerializable("user");
@@ -82,6 +92,25 @@ public class FikirPuanView extends Fragment {
 			}
 
 		}
+		
+		puanVerButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				CheckBox cb;
+				RatingBar rating;
+				TextView kriterKatsayi;
+				for (int x = 0; x<puanKriterList.getCount();x++){
+			        cb = (CheckBox)puanKriterList.getChildAt(x).findViewById(R.id.puanKriterAdi);
+			        if(cb.isChecked()){
+			            rating = (RatingBar) puanKriterList.getChildAt(x).findViewById(R.id.ratingBar1);
+			            kriterKatsayi = (TextView) puanKriterList.getChildAt(x).findViewById(R.id.kriterpuanhint);
+			            Log.d("puan List", cb.getText() + " " + kriterKatsayi.getText() + " " + rating.getRating());
+			        }
+			    }
+			}
+		});
 		
 		return root;
 

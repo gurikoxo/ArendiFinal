@@ -80,22 +80,6 @@ public class MainActivity extends FragmentActivity {
 
         
         navList.setAdapter(listAdapter);
-//		navList.setOnItemClickListener(new OnItemClickListener(){
-//		         @Override
-//		         public void onItemClick(AdapterView<?> parent, View view, final int pos,long id){
-//		                 drawer.setDrawerListener( new DrawerLayout.SimpleDrawerListener(){
-//		                         @Override
-//		                         public void onDrawerClosed(View drawerView){
-//		                                 super.onDrawerClosed(drawerView);
-//		                                 FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-//		                                 tx.replace(R.id.main, Fragment.instantiate(MainActivity.this, fragments[pos]));
-//		                                 tx.commit();
-//		                         }
-//		                 });
-//		                 drawer.closeDrawer(navList);
-//		         }
-//		 });
-		 
 		 navList.setOnChildClickListener(new OnChildClickListener() {
 	       	 
 	            @Override
@@ -114,7 +98,7 @@ public class MainActivity extends FragmentActivity {
 	                	tx.replace(R.id.main, Fragment.instantiate(MainActivity.this, (String) fragmentMap.get(listDataChild.get(
 								listDataHeader.get(groupPosition)).get(
 								childPosition))));
-	                	 
+	                	tx.addToBackStack(this.toString());
 	                	 tx.commit();
 //	               
 	                drawer.closeDrawer(navList);
@@ -199,10 +183,10 @@ public class MainActivity extends FragmentActivity {
         // Adding child data
         List<String> projeHeader = new ArrayList<String>();
         projeHeader.add("Fikir Ekle");
+        projeHeader.add("Fikirlerim");
         projeHeader.add("Fikir Listesi");
  
         List<String> firmaHeader = new ArrayList<String>();
-        firmaHeader.add("Firma Listesi");
         firmaHeader.add("Personel Listesi");
         firmaHeader.add("Departman Listesi");
         firmaHeader.add("Proje Kategori Listesi");
@@ -227,12 +211,11 @@ public class MainActivity extends FragmentActivity {
 	
 	private void fillFragmentMap(){
 		fragmentMap.put("Fikir Ekle", "edu.gyte.bitirme.arendi.fikirekle.FikirEkleView");
-		fragmentMap.put("Firma Listesi", "edu.gyte.bitirme.arendi.firmalistesi.FirmaListesiView");
 		fragmentMap.put("Fikir Listesi", "edu.gyte.bitirme.arendi.fikirlistesi.FikirListesiView");
 		fragmentMap.put("Personel Listesi", "edu.gyte.bitirme.arendi.personellistesi.PersonelListesiView");
 		fragmentMap.put("Departman Listesi", "edu.gyte.bitirme.arendi.departmanlistesi.DepartmanListesiView");
 		fragmentMap.put("Proje Kategori Listesi", "edu.gyte.bitirme.arendi.projekategorilistesi.ProjeKategoriListesiView");
-		fragmentMap.put("Tanýmlamalar", "lets.change.arendi.sistem.TanimlamalarView");
+		fragmentMap.put("Fikirlerim", "edu.gyte.bitirme.arendi.fikirlistesi.UserFikirListesiView");
 		fragmentMap.put("Deðerlendirme Kriterleri", "edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriterleriView");
 		
 	}

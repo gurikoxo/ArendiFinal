@@ -11,13 +11,26 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:text="TextView" 
+        android:textSize="20sp"/>
 
     <ListView
         android:id="@+id/puanKriterList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/puanFikirAdi">
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/puanFikirAdi"
+        android:layout_marginBottom="50dp" >
+
     </ListView>
+
+    <Button
+        android:id="@+id/puanVerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/fikir_detay_puan_ver" />
 
 </RelativeLayout>

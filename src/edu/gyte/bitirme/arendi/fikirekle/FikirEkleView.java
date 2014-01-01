@@ -52,8 +52,10 @@ public class FikirEkleView extends Fragment {
 	EditText fikirBaslik;
 	EditText fikirAciklama;
 	Bitmap fikirImage;
+	Spinner fikirGizlilikSpinner;
+	User user;
 	
-	
+
 	private static final int CAMERA_REQUEST = 1888;
 	private ImageView imageView = null;
 	Uri imageUri;
@@ -69,20 +71,19 @@ public class FikirEkleView extends Fragment {
 			Bundle savedInstanceState) {
 		final ViewGroup root = (ViewGroup) inflater.inflate(
 				R.layout.fikir_ekle_view, null);
-		
-		final User user = (User) getActivity().getIntent().getExtras().getSerializable("user");
 
-		final Spinner fikirGizlilikSpinner = (Spinner) root
+		user = (User) getActivity().getIntent().getExtras()
+				.getSerializable("user");
+
+		fikirGizlilikSpinner = (Spinner) root
 				.findViewById(R.id.fikirGizlilikSpinner);
 
 		fikirGizlilikSpinner.setAdapter(new ArrayAdapter<FikirGizlilik>(root
 				.getContext(), android.R.layout.simple_spinner_dropdown_item,
 				FikirGizlilik.values()));
 
-		fikirBaslik = (EditText) root
-				.findViewById(R.id.fikirBaslikField);
-		 fikirAciklama = (EditText) root
-				.findViewById(R.id.fikirAciklamaField);
+		fikirBaslik = (EditText) root.findViewById(R.id.fikirBaslikField);
+		fikirAciklama = (EditText) root.findViewById(R.id.fikirAciklamaField);
 
 		Button fikirEkleButton = (Button) root.findViewById(R.id.fikirEkleBtn);
 
@@ -92,26 +93,36 @@ public class FikirEkleView extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				
-				senderTask sender = new senderTask();
-				
-				try {
-					if(sender.execute(fikirImage).get()){
-						Log.d("log" , "Fikir Eklendi");
-						Crouton.makeText(getActivity(), "Fikir Eklendi", Style.ALERT).show();
-					}else{
-						Crouton.makeText(getActivity(), "Hata! Fikir Eklenemedi.", Style.ALERT).show();
+
+				if (!fikirBaslik.getText().equals("")
+						&& !fikirAciklama.getText().equals("")) {
+
+					senderTask sender = new senderTask();
+
+					try {
+						if (sender.execute(fikirImage).get()) {
+							Log.d("log", "Fikir Eklendi");
+							Crouton.makeText(getActivity(), "Fikir Eklendi",
+									Style.CONFIRM).show();
+						} else {
+							Crouton.makeText(getActivity(),
+									"Hata! Fikir Eklenemedi.", Style.ALERT)
+									.show();
+						}
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExecutionException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ExecutionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+
+				}else{
+					Crouton.makeText(getActivity(),
+							"Lütfen Bütün alanlarý doldurunuz.", Style.ALERT)
+							.show();
 				}
-				
-				
-				
+
 			}
 		});
 
@@ -141,61 +152,68 @@ public class FikirEkleView extends Fragment {
 			fikirImage = imageBitmap;
 		}
 	}
-	
+
 	public class senderTask extends AsyncTask<Bitmap, Void, Boolean> {
 
-				@Override
-				protected Boolean doInBackground(Bitmap... bitmaps) {
-					// TODO Auto-generated method stub
-					try {
-						Bitmap bm = bitmaps[0];
-						ByteArrayOutputStream bos = new ByteArrayOutputStream();
-						bm.compress(CompressFormat.JPEG, 75, bos);
-						byte[] data = bos.toByteArray();
-						HttpClient httpClient = new DefaultHttpClient();
-						HttpPost postRequest = new HttpPost(FIKIR_EKLE_WS);
-						Calendar cal = Calendar.getInstance();
+		@Override
+		protected Boolean doInBackground(Bitmap... bitmaps) {
+			// TODO Auto-generated method stub
+			try {
+				
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpPost postRequest = new HttpPost(FIKIR_EKLE_WS);
+				Calendar cal = Calendar.getInstance();
 
-						ByteArrayBody bab = new ByteArrayBody(data, ""
-								+ cal.getTimeInMillis() + ".png");
+				
 
-						// FileBody bin = new FileBody(file);
-						MultipartEntity reqEntity = new MultipartEntity(
-								HttpMultipartMode.BROWSER_COMPATIBLE);
-						reqEntity.addPart("userfile", bab);
-						Log.w("userfile", "Dosya eklendi.");
-						reqEntity.addPart("baslik", new StringBody(fikirBaslik.getText()
-								.toString()));
-						reqEntity.addPart("aciklama", new StringBody(fikirAciklama.getText()
-								.toString()));
-						reqEntity.addPart("gizlilik", new StringBody(""+1));
-						reqEntity.addPart("userid", new StringBody(""+1));
-						reqEntity.addPart("firmaid", new StringBody(""+1));
-						Log.w("Bilgi", "Bilgiler Eklendi.");
-						postRequest.setEntity(reqEntity);
-						
-						HttpResponse response = httpClient.execute(postRequest);
-						
-						BufferedReader reader = new BufferedReader(
-								new InputStreamReader(
-										response.getEntity().getContent(), "UTF-8"));
-						String sResponse;
-						StringBuilder s = new StringBuilder();
-
-						while ((sResponse = reader.readLine()) != null) {
-							s = s.append(sResponse);
-						}
-						System.out.println("Response: " + s.toString());
-						
-					} catch (Exception e) { // handle exception here
-						 e.printStackTrace();
-						Log.e(e.getClass().getName(), e.getMessage());
-						return false;
-					}
-					return true;
+				// FileBody bin = new FileBody(file);
+				MultipartEntity reqEntity = new MultipartEntity(
+						HttpMultipartMode.BROWSER_COMPATIBLE);
+				if(bitmaps[0]!=null)
+				{
+				Bitmap bm = bitmaps[0];
+				
+				ByteArrayOutputStream bos = new ByteArrayOutputStream();
+				bm.compress(CompressFormat.JPEG, 75, bos);
+				byte[] data = bos.toByteArray();
+				ByteArrayBody bab = new ByteArrayBody(data, ""
+						+ cal.getTimeInMillis() + ".png");
+				
+				
+				reqEntity.addPart("userfile", bab);
 				}
+				Log.w("userfile", "Dosya eklendi.");
+				reqEntity.addPart("baslik", new StringBody(fikirBaslik
+						.getText().toString()));
+				reqEntity.addPart("aciklama", new StringBody(fikirAciklama
+						.getText().toString()));
+				reqEntity.addPart("gizlilik", new StringBody(fikirGizlilikSpinner.getSelectedItem().toString()));
+				reqEntity.addPart("userid", new StringBody(""+user.getId()));
+				reqEntity.addPart("firmaid", new StringBody("" + user.getFirmaId()));
+				Log.w("Bilgi", "Bilgiler Eklendi.");
+				postRequest.setEntity(reqEntity);
 
+				HttpResponse response = httpClient.execute(postRequest);
+
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(
+								response.getEntity().getContent(), "UTF-8"));
+				String sResponse;
+				StringBuilder s = new StringBuilder();
+
+				while ((sResponse = reader.readLine()) != null) {
+					s = s.append(sResponse);
+				}
+				System.out.println("Response: " + s.toString());
+
+			} catch (Exception e) { // handle exception here
+				e.printStackTrace();
+				Log.e(e.getClass().getName(), e.getMessage());
+				return false;
 			}
+			return true;
+		}
 
-	
+	}
+
 }

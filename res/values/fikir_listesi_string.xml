@@ -4,5 +4,7 @@
     <string name="fikir_listesi_header">Fikir Listesi</string>
     <string name="fikir_detay_Fikir_sahibi">Fikir Sahibi</string>
     <string name="fikir_detay_puan_ver">Puan Ver</string>
+    <string name="fikirlerim">Fikirlerim</string>
+    <string name="fikir">Fikir</string>
 
 </resources>

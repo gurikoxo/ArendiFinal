@@ -8,21 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import edu.gyte.bitirme.arendi.R;
 import edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriteri;
 
-public class FikirPuanListAdapter extends ArrayAdapter<DegerlendirmeKriteri> {
+public class UserFikirListesiListAdapter extends ArrayAdapter<Fikir> {
 
-	ArrayList<DegerlendirmeKriteri> list = new ArrayList<DegerlendirmeKriteri>();
+	ArrayList<Fikir> list = new ArrayList<Fikir>();
 	
-	public FikirPuanListAdapter(Context context, int textViewResourceId,
-			List<DegerlendirmeKriteri> objects) {
-		super(context, R.layout.fikir_puan_list_item, objects);
+	public UserFikirListesiListAdapter(Context context, int textViewResourceId,
+			List<Fikir> objects) {
+		super(context, R.layout.fikir_listesi_user_item, objects);
 		// TODO Auto-generated constructor stub
-		list=(ArrayList<DegerlendirmeKriteri>) objects;
+		list=(ArrayList<Fikir>) objects;
 	}
 
     
@@ -35,19 +33,16 @@ public class FikirPuanListAdapter extends ArrayAdapter<DegerlendirmeKriteri> {
 		// to inflate it basically means to render, or show, the view.
 		if (v == null) {
 			LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = inflater.inflate(R.layout.fikir_puan_list_item, null);
+			v = inflater.inflate(R.layout.fikir_listesi_user_item, null);
 		}
 
-			CheckBox kriterCheck = (CheckBox) v.findViewById(R.id.puanKriterAdi);
-//			TextView kriterAdi = (TextView) v.findViewById(R.id.puanKriterAdi);
-			RatingBar ratingbar = (RatingBar) v.findViewById(R.id.ratingBar1);
-
-			TextView kriterPuan  = (TextView) v.findViewById(R.id.kriterpuanhint);
+			TextView fikiradi = (TextView) v.findViewById(R.id.userfikiradi);
 			
-			kriterPuan.setText(String.valueOf(list.get(position).getKatsayi()));
-			ratingbar.setFocusable(false);
+			TextView fikirPuan = (TextView) v.findViewById(R.id.userfikirpuan);
 			
-			kriterCheck.setText(list.get(position).getKriterAdi());
+			fikiradi.setText(list.get(position).getBaslik());
+			fikirPuan.setText(list.get(position).getPuan().toString());
+			
 			
 		// the view must be returned to our activity
 		return v;
