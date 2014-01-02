@@ -9,7 +9,7 @@ public class User implements Serializable{
 	private String password;
 	private String telefon;
 	private boolean juri ;
-	private String firmaadi;
+	private String firmaAdi;
 	private int firmaId;
 	private String departmanadi;
 	
@@ -49,11 +49,11 @@ public class User implements Serializable{
 	public void setJuri(boolean juri) {
 		this.juri = juri;
 	}
-	public String getFirmaadi() {
-		return firmaadi;
+	public String getFirmaAdi() {
+		return firmaAdi;
 	}
-	public void setFirmaadi(String firmaadi) {
-		this.firmaadi = firmaadi;
+	public void setFirmaAdi(String firmaAdi) {
+		this.firmaAdi = firmaAdi;
 	}
 	public String getDepartmanadi() {
 		return departmanadi;

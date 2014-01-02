@@ -38,10 +38,6 @@ public final class R {
         public static final int red_tick=0x7f020007;
     }
     public static final class id {
-        public static final int Button01=0x7f090049;
-        public static final int Button02=0x7f09004e;
-        public static final int Button03=0x7f09004b;
-        public static final int Button04=0x7f09004c;
         public static final int DepartmanListesiHeader=0x7f090011;
         public static final int FikirListesiHeader=0x7f090027;
         public static final int PersonelEMail=0x7f090053;
@@ -85,7 +81,6 @@ public final class R {
         public static final int firmaEPosta=0x7f090037;
         public static final int firmaEPostaField=0x7f090038;
         public static final int firmaEkleButton=0x7f090040;
-        public static final int firmaListesiButton=0x7f09004d;
         public static final int firmaListesiHeader=0x7f090044;
         public static final int firmaListesiView=0x7f090045;
         public static final int firmaOlcegiLabel=0x7f09003a;
@@ -98,6 +93,7 @@ public final class R {
         public static final int imageView1=0x7f090007;
         public static final int iptalButton=0x7f090060;
         public static final int isManager=0x7f090054;
+        public static final int kategoriFirmaAdi=0x7f090057;
         public static final int kriterAdi=0x7f090009;
         public static final int kriterPuan=0x7f09000a;
         public static final int kriterpuanhint=0x7f09002b;
@@ -110,6 +106,12 @@ public final class R {
         public static final int loginLogo=0x7f090000;
         public static final int logo=0x7f090068;
         public static final int main=0x7f090005;
+        public static final int mainDepartmanListesiBtn=0x7f09004b;
+        public static final int mainFikirEkleBtn=0x7f09004a;
+        public static final int mainFikirListesiBtn=0x7f090049;
+        public static final int mainFikirlerimBtn=0x7f09004c;
+        public static final int mainKategoriListesi=0x7f09004e;
+        public static final int mainPersonelListesiBtn=0x7f09004d;
         public static final int musteriPersoneliCheckBox=0x7f09007c;
         public static final int passwordField=0x7f090001;
         public static final int personelAdSoyadField=0x7f09006e;
@@ -136,7 +138,6 @@ public final class R {
         public static final int personelTcKimlikNoLabel=0x7f09006b;
         public static final int projeKategoriListView=0x7f090056;
         public static final int projeKategoriListesiHeader=0x7f090055;
-        public static final int projeListesiButton=0x7f09004a;
         public static final int puanFikirAdi=0x7f09002c;
         public static final int puanKriterAdi=0x7f090029;
         public static final int puanKriterList=0x7f09002d;
@@ -159,7 +160,6 @@ public final class R {
         public static final int tanimlamaDegerLabel=0x7f090065;
         public static final int tanimlamaDegerList=0x7f090066;
         public static final int tanimlamalarHeader=0x7f090061;
-        public static final int textView1=0x7f090057;
         public static final int textView2=0x7f09000d;
         public static final int userfikiradi=0x7f090025;
         public static final int userfikirpuan=0x7f090026;

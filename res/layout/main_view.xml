@@ -4,75 +4,75 @@
     android:layout_height="match_parent" >
 
     <Button
-        android:id="@+id/Button01"
+        android:id="@+id/mainFikirListesiBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignLeft="@+id/projeListesiButton"
-        android:layout_alignRight="@+id/projeListesiButton"
-        android:layout_below="@+id/projeListesiButton"
+        android:layout_alignLeft="@+id/mainFikirEkleBtn"
+        android:layout_alignRight="@+id/mainFikirEkleBtn"
+        android:layout_below="@+id/mainFikirEkleBtn"
         android:layout_marginTop="56dp"
         android:background="@android:color/holo_orange_light"
-        android:text="Personel\nListesi"
+        android:text="Fikir\nListesi"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/Button03"
+        android:id="@+id/mainDepartmanListesiBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignLeft="@+id/Button01"
-        android:layout_alignRight="@+id/Button01"
-        android:layout_below="@+id/Button01"
+        android:layout_alignLeft="@+id/mainFikirListesiBtn"
+        android:layout_alignRight="@+id/mainFikirListesiBtn"
+        android:layout_below="@+id/mainFikirListesiBtn"
         android:layout_marginTop="57dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="Proje\nKategori\nListesi"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/Button04"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_above="@+id/Button01"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="220dp"
-        android:layout_marginRight="32dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="@string/firma_listesi_double"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/firmaListesiButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignBaseline="@+id/Button01"
-        android:layout_alignBottom="@+id/Button01"
-        android:layout_alignLeft="@+id/Button04"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="31dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="@string/firma_listesi_double"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/Button02"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignBottom="@+id/Button03"
-        android:layout_alignLeft="@+id/firmaListesiButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/Button03"
-        android:layout_marginRight="30dp"
         android:background="@android:color/holo_orange_light"
         android:text="Departman\nListesi"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/projeListesiButton"
+        android:id="@+id/mainFikirlerimBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/mainFikirListesiBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="220dp"
+        android:layout_marginRight="32dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="Fikirlerim"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/mainPersonelListesiBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignBaseline="@+id/mainFikirListesiBtn"
+        android:layout_alignBottom="@+id/mainFikirListesiBtn"
+        android:layout_alignLeft="@+id/mainFikirlerimBtn"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="31dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="Personel\nListesi"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/mainKategoriListesi"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/mainDepartmanListesiBtn"
+        android:layout_alignLeft="@+id/mainPersonelListesiBtn"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/mainDepartmanListesiBtn"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/holo_orange_light"
+        android:text="Proje\nKategori\nListesi"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/mainFikirEkleBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
@@ -80,7 +80,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="67dp"
         android:layout_marginTop="41dp"
-        android:layout_toLeftOf="@+id/firmaListesiButton"
+        android:layout_toLeftOf="@+id/mainPersonelListesiBtn"
         android:background="@android:color/holo_orange_light"
         android:text="@string/proje_listesi_double"
         android:textColor="@android:color/black"

@@ -46,7 +46,7 @@ public class FikirListesiAdapter extends ArrayAdapter<Fikir> {
 				TextView fikirPuan = (TextView) v.findViewById(R.id.fikirPuan);
 				
 				fikirBaslik.setText(list.get(position).getBaslik());
-				fikirSahibi.setText(list.get(position).getUsername()+" " + list.get(position).getUserid());
+				fikirSahibi.setText(list.get(position).getUsername());
 				fikirPuan.setText(list.get(position).getPuan().toString());
 				
 				

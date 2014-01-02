@@ -38,7 +38,6 @@ public class MainActivity extends FragmentActivity {
 	
 	private ActionBarDrawerToggle mDrawerToggle;
 
-	
 	 	ExpandableListAdapter listAdapter;
 	    ExpandableListView expListView;
 	    List<String> listDataHeader;
@@ -56,7 +55,7 @@ public class MainActivity extends FragmentActivity {
 		 fillFragmentMap();
 		 
 		 User user = (User) getIntent().getExtras().getSerializable("user");
-		 Crouton.makeText(this, "Hoþgeldiniz "+ user.getName() + " " + user.getFirmaId(), Style.CONFIRM).show();
+		 Crouton.makeText(this, "Hoþgeldiniz "+ user.getName(), Style.CONFIRM).show();
 		 
 		 drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
 		 navList = (ExpandableListView) findViewById(R.id.drawer);
@@ -192,7 +191,6 @@ public class MainActivity extends FragmentActivity {
         firmaHeader.add("Proje Kategori Listesi");
  
         List<String> sistemHeader = new ArrayList<String>();
-        sistemHeader.add("Tanýmlamalar");
         sistemHeader.add("Deðerlendirme Kriterleri");
  
         List<String> projeTakibiHeader = new ArrayList<String>();

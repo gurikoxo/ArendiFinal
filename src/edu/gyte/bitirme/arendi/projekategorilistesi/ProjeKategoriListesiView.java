@@ -49,11 +49,15 @@ public class ProjeKategoriListesiView extends Fragment{
         
         ArrayList<ProjeKategori> list = new ArrayList<ProjeKategori>();
      
+        TextView firmaAdi = (TextView) root.findViewById(R.id.kategoriFirmaAdi);
+        
         
         User user = (User) getActivity().getIntent().getExtras()
 				.getSerializable("user");
 
-		List<NameValuePair> params = new ArrayList<NameValuePair>();
+        firmaAdi.setText(user.getFirmaAdi());
+        
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("firmaid", String.valueOf(user
 				.getFirmaId())));
 

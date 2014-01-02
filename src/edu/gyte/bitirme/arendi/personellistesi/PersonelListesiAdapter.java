@@ -46,7 +46,7 @@ public class PersonelListesiAdapter extends ArrayAdapter<User> {
 			
 			personelAdi.setText(list.get(position).getName());
 			personelEmail.setText(list.get(position).getEmail());
-			personelFirma.setText(list.get(position).getFirmaadi());
+			personelFirma.setText(list.get(position).getFirmaAdi());
 			
 			System.out.println(list.get(position).isJuri());
 			
