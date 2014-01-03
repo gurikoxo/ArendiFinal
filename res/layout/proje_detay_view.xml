@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <TextView
+        android:id="@+id/projeDetayHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="2sp"
+        android:paddingTop="2sp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:id="@+id/seperator"
+        android:layout_width="fill_parent"
+        android:layout_height="1sp"
+        android:layout_below="@+id/projeDetayHeader"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/projefikirbaslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperator"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/projefikiraciklama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/projefikirbaslik"
+        android:layout_below="@+id/projefikirbaslik"
+        android:layout_marginTop="10dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/projefikiraciklama"
+        android:layout_below="@+id/projefikiraciklama"
+        android:layout_marginTop="10dp"
+        android:text="Sorumlu Personel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/projeSorumluPersonel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/label"
+        android:layout_alignBottom="@+id/label"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/label"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/projefikirimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/projeSorumluPersonel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/arrow" />
+
+</RelativeLayout>
