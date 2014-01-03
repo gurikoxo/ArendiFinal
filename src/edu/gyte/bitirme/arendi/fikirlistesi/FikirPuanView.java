@@ -129,7 +129,7 @@ public class FikirPuanView extends Fragment {
 				
 				String result = Service.makeSimpleHttpGet(ADD_FIKIR_PUAN, params);
 				Log.d("DEBUG", result);
-				if(result.equals("1")){
+				
 					Crouton.makeText(getActivity(),
 							"Puan Verme Ýþlemi Baþarýlý.", Style.CONFIRM)
 							.show();
@@ -137,11 +137,7 @@ public class FikirPuanView extends Fragment {
 					tx.replace(R.id.main,Fragment.instantiate(getActivity(), "edu.gyte.bitirme.arendi.fikirlistesi.FikirListesiView"));
 					tx.addToBackStack(root.toString());
 					tx.commit();
-				}else{
-					Crouton.makeText(getActivity(),
-							"Hata ! iþlem Tamamlanamadý.", Style.ALERT)
-							.show();
-				}
+				
 			}
 		});
 		

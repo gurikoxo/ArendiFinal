@@ -164,8 +164,6 @@ public class FikirDetayView extends Fragment {
 						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog, int id) {
 										
-										
-									
 										List<NameValuePair> params = new ArrayList<NameValuePair>();
 
 										params.add(new BasicNameValuePair("fikirid", String.valueOf(fikir.getId())));

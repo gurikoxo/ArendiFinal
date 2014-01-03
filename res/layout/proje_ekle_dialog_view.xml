@@ -10,7 +10,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="21dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:ems="10" />
 
     <TextView
@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/yeniProjeAdi"
         android:layout_below="@+id/textView2" />
 
     <TextView

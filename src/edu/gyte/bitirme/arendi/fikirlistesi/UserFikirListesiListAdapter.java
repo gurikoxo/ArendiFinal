@@ -1,5 +1,6 @@
 package edu.gyte.bitirme.arendi.fikirlistesi;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +42,12 @@ public class UserFikirListesiListAdapter extends ArrayAdapter<Fikir> {
 			TextView fikirPuan = (TextView) v.findViewById(R.id.userfikirpuan);
 			
 			fikiradi.setText(list.get(position).getBaslik());
-			fikirPuan.setText(list.get(position).getPuan().toString());
+			
+			BigDecimal bd = new BigDecimal(list.get(position).getPuan());
+		    bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+			
+			
+			fikirPuan.setText(String.valueOf(bd.doubleValue()));
 			
 			
 		// the view must be returned to our activity
