@@ -55,12 +55,11 @@
         android:id="@+id/fikirFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/puanVerBtn"
         android:layout_alignLeft="@+id/fikirSahibiLabel"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/fikirSahibi"
-        android:layout_marginBottom="27dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="42dp"
         android:src="@drawable/red_tick" />
 
@@ -68,8 +67,9 @@
         android:id="@+id/puanVerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fikirFoto"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/fikirFoto"
-        android:layout_below="@+id/fikirSahibi"
         android:text="Puan Ver" />
     
 </RelativeLayout>

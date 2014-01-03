@@ -9,7 +9,7 @@ public class Fikir implements Serializable {
 	private String baslik;
 	private String aciklama;
 	private FikirGizlilik gizlilik;
-	private String image ; 
+	private String foto ; 
 	private Double puan;
 	private String username ;
 	private int userid;
@@ -39,11 +39,11 @@ public class Fikir implements Serializable {
 	public void setGizlilik(FikirGizlilik gizlilik) {
 		this.gizlilik = gizlilik;
 	}
-	public String getImage() {
-		return image;
+	public String getFoto() {
+		return foto;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 	public int getFirmaid() {
 		return firmaid;

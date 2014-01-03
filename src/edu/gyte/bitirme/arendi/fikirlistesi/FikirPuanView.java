@@ -9,6 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 import edu.gyte.bitirme.arendi.R;
 import edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriterJson;
 import edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriteri;
+import edu.gyte.bitirme.arendi.fikirekle.Result;
 import edu.gyte.bitirme.arendi.login.User;
 import edu.gyte.bitirme.arendi.services.Service;
 
@@ -35,7 +37,10 @@ public class FikirPuanView extends Fragment {
 
 	
 	final String GET_KRITER_LIST_WS = Service.serverAddres + "get_kriter_list.php";
+	final String ADD_FIKIR_PUAN = Service.serverAddres + "puan_ekle.php";
 	Gson gson = new Gson();
+	User user;
+	Fikir fikir;
 	
 	Button puanVerButton ;
 	
@@ -51,7 +56,7 @@ public class FikirPuanView extends Fragment {
 		final ViewGroup root = (ViewGroup) inflater.inflate(
 				R.layout.fikir_puan_view, null);
 
-		Fikir fikir = (Fikir) getArguments().getSerializable("fikir");
+		fikir = (Fikir) getArguments().getSerializable("fikir");
 		
 		ArrayList<DegerlendirmeKriteri> list = new ArrayList<DegerlendirmeKriteri>();
 		
@@ -64,7 +69,7 @@ public class FikirPuanView extends Fragment {
 
 		final ListView puanKriterList = (ListView) root.findViewById(R.id.puanKriterList);
 		
-		User user = (User) getActivity().getIntent().getExtras()
+		user = (User) getActivity().getIntent().getExtras()
 				.getSerializable("user");
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -101,14 +106,42 @@ public class FikirPuanView extends Fragment {
 				CheckBox cb;
 				RatingBar rating;
 				TextView kriterKatsayi;
+				int kriterCount = 0;
+				Double totalPuan = 0.0;
+				
 				for (int x = 0; x<puanKriterList.getCount();x++){
 			        cb = (CheckBox)puanKriterList.getChildAt(x).findViewById(R.id.puanKriterAdi);
 			        if(cb.isChecked()){
+			        	kriterCount++;
 			            rating = (RatingBar) puanKriterList.getChildAt(x).findViewById(R.id.ratingBar1);
 			            kriterKatsayi = (TextView) puanKriterList.getChildAt(x).findViewById(R.id.kriterpuanhint);
+			            
+			            totalPuan += (double) (rating.getRating()* Integer.valueOf(kriterKatsayi.getText().toString()));
+			            
 			            Log.d("puan List", cb.getText() + " " + kriterKatsayi.getText() + " " + rating.getRating());
 			        }
 			    }
+				
+				List<NameValuePair> params = new ArrayList<NameValuePair>();
+				params.add(new BasicNameValuePair("userid",String.valueOf(user.getId())));
+				params.add(new BasicNameValuePair("fikirid",String.valueOf(fikir.getId())));
+				params.add(new BasicNameValuePair("puan",String.valueOf(totalPuan/kriterCount)));
+				
+				String result = Service.makeSimpleHttpGet(ADD_FIKIR_PUAN, params);
+				Log.d("DEBUG", result);
+				if(result.equals("1")){
+					Crouton.makeText(getActivity(),
+							"Puan Verme Ýþlemi Baþarýlý.", Style.CONFIRM)
+							.show();
+					FragmentTransaction tx = getActivity().getSupportFragmentManager().beginTransaction();
+					tx.replace(R.id.main,Fragment.instantiate(getActivity(), "edu.gyte.bitirme.arendi.fikirlistesi.FikirListesiView"));
+					tx.addToBackStack(root.toString());
+					tx.commit();
+				}else{
+					Crouton.makeText(getActivity(),
+							"Hata ! iþlem Tamamlanamadý.", Style.ALERT)
+							.show();
+				}
 			}
 		});
 		

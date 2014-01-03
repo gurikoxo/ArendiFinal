@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,7 +40,7 @@ public class FikirDetayView extends Fragment {
 		
 		final Fikir fikir = (Fikir) getArguments().getSerializable("fikir");
 		
-		Toast.makeText(root.getContext(), fikir.getImage(), Toast.LENGTH_LONG).show();;
+		Toast.makeText(root.getContext(), fikir.getFoto(), Toast.LENGTH_LONG).show();;
 		
 		
 		TextView header = (TextView) root.findViewById(R.id.fikirDetayHeader);
@@ -56,7 +57,7 @@ public class FikirDetayView extends Fragment {
 		
 		ImageView foto = (ImageView) root.findViewById(R.id.fikirFoto);
 		
-		UrlImageViewHelper.setUrlDrawable(foto, fikir.getImage());
+		UrlImageViewHelper.setUrlDrawable(foto, fikir.getFoto());
 		
 		Button puanButton = (Button) root.findViewById(R.id.puanVerBtn);
 		

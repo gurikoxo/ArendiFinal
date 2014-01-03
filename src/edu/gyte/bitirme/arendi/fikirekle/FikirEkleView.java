@@ -9,11 +9,12 @@ import java.util.concurrent.ExecutionException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.ByteArrayBody;
-import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 
 import android.app.Activity;
 import android.content.Context;
@@ -39,15 +40,15 @@ import com.google.gson.Gson;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-
 import edu.gyte.bitirme.arendi.R;
-import edu.gyte.bitirme.arendi.login.LoginActivity;
+import edu.gyte.bitirme.arendi.fikirlistesi.Fikir;
 import edu.gyte.bitirme.arendi.login.User;
 import edu.gyte.bitirme.arendi.services.Service;
 
 public class FikirEkleView extends Fragment {
 
 	final String FIKIR_EKLE_WS = Service.serverAddres + "fikir_ekle.php";
+	final String UPLOAD = Service.serverAddres + "upload.php";
 	Gson gson = new Gson();
 	EditText fikirBaslik;
 	EditText fikirAciklama;
@@ -166,33 +167,40 @@ public class FikirEkleView extends Fragment {
 
 				
 
-				// FileBody bin = new FileBody(file);
-				MultipartEntity reqEntity = new MultipartEntity(
-						HttpMultipartMode.BROWSER_COMPATIBLE);
-				if(bitmaps[0]!=null)
-				{
-				Bitmap bm = bitmaps[0];
+//				// FileBody bin = new FileBody(file);
+//				MultipartEntity reqEntity = new MultipartEntity(
+//						HttpMultipartMode.BROWSER_COMPATIBLE);
+//				if(bitmaps[0]!=null)
+//				{
+//				Bitmap bm = bitmaps[0];
+//				
+//				ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//				bm.compress(CompressFormat.JPEG, 75, bos);
+//				byte[] data = bos.toByteArray();
+//				ByteArrayBody bab = new ByteArrayBody(data, ""
+//						+ cal.getTimeInMillis() + ".png");
+//				
+//				
+//				reqEntity.addPart("userfile", bab);
 				
-				ByteArrayOutputStream bos = new ByteArrayOutputStream();
-				bm.compress(CompressFormat.JPEG, 75, bos);
-				byte[] data = bos.toByteArray();
-				ByteArrayBody bab = new ByteArrayBody(data, ""
-						+ cal.getTimeInMillis() + ".png");
 				
+				String fotoUrl = uploadFoto();
 				
-				reqEntity.addPart("userfile", bab);
-				}
-				Log.w("userfile", "Dosya eklendi.");
-				reqEntity.addPart("baslik", new StringBody(fikirBaslik
-						.getText().toString()));
-				reqEntity.addPart("aciklama", new StringBody(fikirAciklama
-						.getText().toString()));
-				reqEntity.addPart("gizlilik", new StringBody(fikirGizlilikSpinner.getSelectedItem().toString()));
-				reqEntity.addPart("userid", new StringBody(""+user.getId()));
-				reqEntity.addPart("firmaid", new StringBody("" + user.getFirmaId()));
-				Log.w("Bilgi", "Bilgiler Eklendi.");
-				postRequest.setEntity(reqEntity);
-
+				Fikir yeniFikir= new Fikir();
+				
+				yeniFikir.setBaslik(fikirBaslik.getText().toString());
+				yeniFikir.setAciklama(fikirAciklama.getText().toString());
+				yeniFikir.setGizlilik(FikirGizlilik.valueOf(fikirGizlilikSpinner.getSelectedItem().toString()));
+				yeniFikir.setUserid(user.getId());
+				yeniFikir.setFirmaid( user.getFirmaId());
+				yeniFikir.setFoto(fotoUrl);
+				
+				String fikirJson = gson.toJson(yeniFikir);
+				
+				Log.d("DEBUG", fikirJson);
+				
+				postRequest.setEntity(new StringEntity(fikirJson,HTTP.UTF_8));
+				
 				HttpResponse response = httpClient.execute(postRequest);
 
 				BufferedReader reader = new BufferedReader(
@@ -216,4 +224,50 @@ public class FikirEkleView extends Fragment {
 
 	}
 
+	public String uploadFoto ()  {
+			try {
+				
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpPost postRequest = new HttpPost(UPLOAD);
+				Calendar cal = Calendar.getInstance();
+
+				// FileBody bin = new FileBody(file);
+				MultipartEntity reqEntity = new MultipartEntity(
+						HttpMultipartMode.BROWSER_COMPATIBLE);
+				if(fikirImage==null)
+					return null;
+				Bitmap bm = fikirImage;
+				
+				ByteArrayOutputStream bos = new ByteArrayOutputStream();
+				bm.compress(CompressFormat.JPEG, 75, bos);
+				byte[] data = bos.toByteArray();
+				ByteArrayBody bab = new ByteArrayBody(data, ""
+						+ cal.getTimeInMillis() + ".png");
+				
+				
+				reqEntity.addPart("userfile", bab);
+				
+				postRequest.setEntity(reqEntity);
+				
+				HttpResponse response = httpClient.execute(postRequest);
+
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(
+								response.getEntity().getContent(), "UTF-8"));
+				String sResponse;
+				StringBuilder s = new StringBuilder();
+
+				while ((sResponse = reader.readLine()) != null) {
+					s = s.append(sResponse);
+				}
+				System.out.println("Response: " + s.toString());
+				return s.toString();
+			} catch (Exception e) { // handle exception here
+				e.printStackTrace();
+				Log.e(e.getClass().getName(), e.getMessage());
+				return null;
+		}
+			
+	}
+	
 }
