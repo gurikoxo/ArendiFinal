@@ -78,6 +78,7 @@ public class FikirListesiView extends Fragment {
 				
 				Bundle args = new Bundle();
 				args.putSerializable("fikir", (Serializable) list.get(position));
+				args.putBoolean("pro", false);
 				
 				FragmentTransaction tx = getActivity().getSupportFragmentManager().beginTransaction();
 				tx.replace(R.id.main,Fragment.instantiate(getActivity(), "edu.gyte.bitirme.arendi.fikirlistesi.FikirDetayView",args));

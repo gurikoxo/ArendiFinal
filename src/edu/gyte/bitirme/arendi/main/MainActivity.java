@@ -216,6 +216,7 @@ public class MainActivity extends FragmentActivity {
 		fragmentMap.put("Fikirlerim", "edu.gyte.bitirme.arendi.fikirlistesi.UserFikirListesiView");
 		fragmentMap.put("Deðerlendirme Kriterleri", "edu.gyte.bitirme.arendi.degerlendirmekriterleri.DegerlendirmeKriterleriView");
 		fragmentMap.put("Projeler", "edu.gyte.bitirme.arendi.projeler.ProjeListesiView");
+		fragmentMap.put("Proje Kayýt", "edu.gyte.bitirme.arendi.projeler.ProjeEkleView");
 		
 		
 	}

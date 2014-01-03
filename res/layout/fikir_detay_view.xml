@@ -59,7 +59,8 @@
         android:layout_alignLeft="@+id/fikirSahibiLabel"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/fikirSahibi"
-        android:layout_marginRight="10dp"
+        android:layout_marginBottom="54dp"
+        android:layout_marginRight="13dp"
         android:layout_marginTop="42dp"
         android:src="@drawable/red_tick" />
 
@@ -71,5 +72,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/fikirFoto"
         android:text="Puan Ver" />
+
+    <Button
+        android:id="@+id/projeYapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/puanVerBtn"
+        android:layout_alignLeft="@+id/puanVerBtn"
+        android:layout_alignRight="@+id/puanVerBtn"
+        android:text="Proje Yap" />
     
 </RelativeLayout>
