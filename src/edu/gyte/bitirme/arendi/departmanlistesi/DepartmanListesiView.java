@@ -49,7 +49,6 @@ public class DepartmanListesiView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.departman_listesi, null);
         
-        FirmaService.loadService();
         
         ListView listview = (ListView) root.findViewById(R.id.departmanListView);
         

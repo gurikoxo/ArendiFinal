@@ -4,4 +4,6 @@
     	 <string name="yeni_kriter_ekle">Yeni Kriter Ekle</string>
     	 <string name="kriter_adi">Kriter</string>
     	 <string name="katsayi">Katsayı</string>
+    	 <string name="projeler_header">Projeler</string>
+    	 
 </resources>

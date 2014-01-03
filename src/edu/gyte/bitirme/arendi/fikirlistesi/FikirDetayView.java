@@ -79,14 +79,4 @@ public class FikirDetayView extends Fragment {
 		return root;
 
 	}
-	
-	private String imageUrlCreator(String url){
-		StringBuilder build = new StringBuilder(IMAGE_URL);
-		
-		build.append(url);
-		build.append(".JPG");
-		
-		return build.toString();
-		
-	}
 }
