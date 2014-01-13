@@ -85,6 +85,12 @@ public class FikirDetayView extends Fragment {
 		
 		Button puanButton = (Button) root.findViewById(R.id.puanVerBtn);
 		
+		User user = (User) getActivity().getIntent().getExtras().getSerializable("user");
+		
+		
+		if(fikir.getUserid()== user.getId() )
+			puanButton.setVisibility(View.GONE);
+		
 		puanButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -100,10 +106,6 @@ public class FikirDetayView extends Fragment {
 			}
 		});
 		
-		
-		User user = (User) getActivity().getIntent().getExtras()
-				.getSerializable("user");
-
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("firmaid", String.valueOf(user
 				.getFirmaId())));

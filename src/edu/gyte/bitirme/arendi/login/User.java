@@ -8,7 +8,7 @@ public class User implements Serializable{
 	private String email;
 	private String password;
 	private String telefon;
-	private boolean juri ;
+	private int juri ;
 	private String firmaAdi;
 	private int firmaId;
 	private String departmanadi;
@@ -43,10 +43,10 @@ public class User implements Serializable{
 	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
-	public boolean isJuri() {
+	public int getJuri() {
 		return juri;
 	}
-	public void setJuri(boolean juri) {
+	public void setJuri(int juri) {
 		this.juri = juri;
 	}
 	public String getFirmaAdi() {

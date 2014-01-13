@@ -86,7 +86,6 @@ public class ProjeEkleView extends Fragment {
 				
 			}
 		
-		
 		});
 		
 		return root;

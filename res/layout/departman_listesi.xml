@@ -22,24 +22,6 @@
         android:layout_below="@+id/DepartmanListesiHeader"
         android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/fikirAciklamaLabel"
-        android:layout_alignBottom="@+id/fikirAciklamaLabel"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="14dp"
-        android:text="@string/firma_adi" />
-
-    <TextView
-        android:id="@+id/fikirAciklamaLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/seperator"
-        android:layout_marginTop="12dp"
-        android:text="@string/departman_adi" />
-
     <View
         android:id="@+id/seperator2"
         android:layout_width="match_parent"
@@ -54,9 +36,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/seperator2"
-        android:layout_alignRight="@+id/seperator2"
-        android:layout_below="@+id/seperator2"
-        android:layout_centerHorizontal="true" >
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/seperator" >
+
     </ListView>
 
 </RelativeLayout>

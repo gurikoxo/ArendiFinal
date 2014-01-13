@@ -48,9 +48,7 @@ public class PersonelListesiAdapter extends ArrayAdapter<User> {
 			personelEmail.setText(list.get(position).getEmail());
 			personelFirma.setText(list.get(position).getFirmaAdi());
 			
-			System.out.println(list.get(position).isJuri());
-			
-			if(list.get(position).isJuri()){
+			if(list.get(position).getJuri()==1){
 				isManager.setChecked(true);
 			}
 			else{

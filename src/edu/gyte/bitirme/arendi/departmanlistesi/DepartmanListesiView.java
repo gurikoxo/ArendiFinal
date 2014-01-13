@@ -73,7 +73,7 @@ public class DepartmanListesiView extends Fragment {
 
 			if (departman.getSuccess() == 1) {
 				list = departman.getDepartmanlist();
-				final DepartmanListAdapter adapter = new DepartmanListAdapter(root.getContext(), R.layout.firma_list_item, list);
+				final DepartmanListAdapter adapter = new DepartmanListAdapter(root.getContext(), android.R.layout.simple_list_item_1, list);
 		        listview.setAdapter(adapter);
 
 			}else{
@@ -81,27 +81,9 @@ public class DepartmanListesiView extends Fragment {
 			}
 
 		}
-     
-        
-        
         
         return root;
     }
-    
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        if (v.getId() == R.id.departmanListView) {
-            ListView lv = (ListView) v;
-            AdapterView.AdapterContextMenuInfo acmi = (AdapterContextMenuInfo) menuInfo;
-            Departman obj = (Departman) lv.getItemAtPosition(acmi.position);
-
-//            menu.setHeaderTitle(obj.getFirmaAdı() +" / " + obj.getDurum());
-            
-            menu.add("Düzenle");
-            menu.add("Sil");
-        }
-    }
-    
     
     
 }

@@ -44,6 +44,7 @@ public class MainActivity extends FragmentActivity {
 	    HashMap<String, List<String>> listDataChild;
 	    DrawerLayout drawer;
 	    ExpandableListView navList ;
+	    User user ;
 	
 	    Map fragmentMap = new HashMap<String, String>();
 	    
@@ -54,8 +55,8 @@ public class MainActivity extends FragmentActivity {
 		
 		 fillFragmentMap();
 		 
-		 User user = (User) getIntent().getExtras().getSerializable("user");
-		 Crouton.makeText(this, "Hoþgeldiniz "+ user.getName(), Style.CONFIRM).show();
+		 user = (User) getIntent().getExtras().getSerializable("user");
+		 Crouton.makeText(this, "Hoþgeldiniz "+ user.getName() + user.getJuri(), Style.CONFIRM).show();
 		 
 		 drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
 		 navList = (ExpandableListView) findViewById(R.id.drawer);
@@ -194,7 +195,8 @@ public class MainActivity extends FragmentActivity {
         sistemHeader.add("Deðerlendirme Kriterleri");
  
         List<String> projeTakibiHeader = new ArrayList<String>();
-        projeTakibiHeader.add("Proje Kayýt");
+        if(user.getJuri()==1)
+        	projeTakibiHeader.add("Proje Kayýt");
         projeTakibiHeader.add("Projeler");
         
         List<String> raporlarHeader = new ArrayList<String>();

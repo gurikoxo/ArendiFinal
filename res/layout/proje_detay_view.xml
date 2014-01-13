@@ -63,11 +63,13 @@
 
     <ImageView
         android:id="@+id/projefikirimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="250dp"
+        android:layout_alignLeft="@+id/label"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/projeSorumluPersonel"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:src="@drawable/arrow" />
 
 </RelativeLayout>

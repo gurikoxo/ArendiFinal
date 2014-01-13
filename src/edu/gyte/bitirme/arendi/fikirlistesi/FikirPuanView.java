@@ -105,16 +105,18 @@ public class FikirPuanView extends Fragment {
 				
 				CheckBox cb;
 				RatingBar rating;
-				TextView kriterKatsayi;
+				TextView kriterKatsayi = null;
 				int kriterCount = 0;
 				Double totalPuan = 0.0;
+				int count = 0;
 				
 				for (int x = 0; x<puanKriterList.getCount();x++){
 			        cb = (CheckBox)puanKriterList.getChildAt(x).findViewById(R.id.puanKriterAdi);
 			        if(cb.isChecked()){
-			        	kriterCount++;
-			            rating = (RatingBar) puanKriterList.getChildAt(x).findViewById(R.id.ratingBar1);
+			        	count++;
+			        	rating = (RatingBar) puanKriterList.getChildAt(x).findViewById(R.id.ratingBar1);
 			            kriterKatsayi = (TextView) puanKriterList.getChildAt(x).findViewById(R.id.kriterpuanhint);
+			            kriterCount = kriterCount + Integer.valueOf(kriterKatsayi.getText().toString());
 			            
 			            totalPuan += (double) (rating.getRating()* Integer.valueOf(kriterKatsayi.getText().toString()));
 			            
@@ -130,8 +132,13 @@ public class FikirPuanView extends Fragment {
 				String result = Service.makeSimpleHttpGet(ADD_FIKIR_PUAN, params);
 				Log.d("DEBUG", result);
 				
+				if(result.equals("1"))
 					Crouton.makeText(getActivity(),
 							"Puan Verme Ýþlemi Baþarýlý.", Style.CONFIRM)
+							.show();
+				else
+					Crouton.makeText(getActivity(),
+							"Bu fikre daha önce puan verdiniz.", Style.ALERT)
 							.show();
 					FragmentTransaction tx = getActivity().getSupportFragmentManager().beginTransaction();
 					tx.replace(R.id.main,Fragment.instantiate(getActivity(), "edu.gyte.bitirme.arendi.fikirlistesi.FikirListesiView"));
